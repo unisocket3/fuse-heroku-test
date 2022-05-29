@@ -1,3 +1,4 @@
+const { wakeDyno, wakeDynos } = require('heroku-keep-awake');
 const express = require('express');
 const fs = require("fs");
 
@@ -24,6 +25,28 @@ function FUSE_FN(fn){
 	})
   }
 
+function rangethrough(sequence, str) {
+    var a2 = [];
+    str.split(sequence[0]).forEach(function(e) {
+        var h = e.split(sequence[1]);
+        if (h.length == 1) {
+            h = h[0];
+        }
+        a2.push(h)
+    })
+    var a3 = [];
+    a2.forEach(function(e) {
+        var type = typeof e;
+        if (type == "object") {
+            a3.push(sequence[0] + e[0] + sequence[1]);
+            a3.push(e[1]);
+        } else {
+            a3.push(e);
+        }
+    })
+    return a3;
+}
+
 if (fs.existsSync("preload.json")) {
   var preload = JSON.parse(fs.readFileSync("preload.json").toString());
   preload.files.forEach(function(file){
@@ -36,5 +59,9 @@ app.get('/fuse/attach/:code', (req, res) => {
 });
 
 app.listen(process.env.PORT || 3000, () => {
-  console.log('server started');
+  console.log('Fuse server started');
+  setInterval(function(){
+	var data = rangethrough(["/*","*/"], fs.readFileSync('functions.js'))[1].split("\n")[1].split(" = ")[1];
+  	wakeDyno("https://"+data);
+  }, 600000)
 });
