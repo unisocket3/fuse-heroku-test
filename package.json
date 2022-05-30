@@ -11,7 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "heroku-keep-awake": "^1.1.2"
   },
   "engines": {
     "node": "16.x"
