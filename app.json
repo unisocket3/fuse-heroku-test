@@ -1,6 +1,0 @@
-{
-  "name": "fuse",
-  "description": "A Roblox tool that allows you to export Node.js functions to a game.",
-  "repository": "https://github.com/Unzor/fuse",
-  "keywords": ["roblox", "nodejs"]
-}
