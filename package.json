@@ -1,10 +1,11 @@
 {
-  "name": "rblx-fuse",
+  "name": "fuse",
   "version": "1.0.1",
-  "description": "",
+  "description": "fuse heroku",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node . -u preload.json"
   },
   "keywords": [],
   "author": "",
@@ -13,8 +14,5 @@
     "axios": "^0.27.2",
     "cli2json": "^1.0.0",
     "express": "^4.18.1"
-  },
-  "bin": {
-    "fuse": "fuse.js"
   }
 }
