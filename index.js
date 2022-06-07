@@ -91,7 +91,7 @@ app.get('/fuse/functions', (req, res) => {
 app.listen(process.env.PORT || 3000, () => {
   console.log('Fuse server started');
   setInterval(function(){
-	var data = rangethrough(["/*","*/"], fs.readFileSync('functions.js'))[1].split("\n")[1].split(" = ")[1];
+	var data = rangethrough(["/*","*/"], fs.readFileSync('functions.js').toString())[1].split("\n")[1].split(" = ")[1];
   	wakeDyno("https://"+data);
   }, 600000)
 });
