@@ -6,7 +6,7 @@ Deployable version of Fuse. (Fork this repo, modify [functions.js](https://githu
 local fuse = require(game.ServerScriptService.Fuse)
 
 local host = fuse.connect('fuse-rblx-demo.herokuapp.com')
-local result = host.test("world")
+local result = host.hello("world")
 
 print(result)
 ```
